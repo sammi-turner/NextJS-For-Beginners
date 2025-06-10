@@ -1,13 +1,28 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 
-export default function PostPage({
+// Define types for the frontmatter data
+interface Frontmatter {
+  title: string;
+  date: string;
+  cover_image: string;
+}
+
+// Define types for the component props
+interface PostPageProps {
+  frontmatter: Frontmatter;
+  content: string;
+  slug: string;
+}
+
+const PostPage: React.FC<PostPageProps> = ({
   frontmatter: { title, date, cover_image },
   content,
-}) {
+}) => {
   return (
     <div>
       <Link href="/" className="btn btn-back">
@@ -23,9 +38,9 @@ export default function PostPage({
       </div>
     </div>
   );
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const files = fs.readdirSync(path.join("posts"));
 
   const paths = files.map((filename) => ({
@@ -38,9 +53,10 @@ export async function getStaticPaths() {
     paths,
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps({ params: { slug } }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const slug = params?.slug as string;
   const markdownWithMeta = fs.readFileSync(
     path.join("posts", slug + ".md"),
     "utf-8"
@@ -55,4 +71,6 @@ export async function getStaticProps({ params: { slug } }) {
       content,
     },
   };
-}
+};
+
+export default PostPage;

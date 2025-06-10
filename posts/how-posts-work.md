@@ -32,11 +32,10 @@ The dynamic post page consists of three main parts:
 ### 1. Page Component
 
 ```tsx
-export default function PostPage({
+const PostPage: React.FC<PostPageProps> = ({
   frontmatter: { title, date, cover_image },
-  slug,
   content,
-}) {
+}) => {
   return (
     <div>
       <Link href="/" className="btn btn-back">
@@ -52,7 +51,7 @@ export default function PostPage({
       </div>
     </div>
   );
-}
+};
 ```
 
 ### 2. getStaticPaths
