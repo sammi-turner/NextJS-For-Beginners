@@ -9,8 +9,8 @@ import Post from "@/components/Post";
 interface Frontmatter {
   title: string;
   date: string;
-  excerpt?: string;
-  cover_image?: string;
+  excerpt: string;
+  cover_image: string;
 }
 
 export interface PostProps {

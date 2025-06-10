@@ -4,7 +4,6 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { tomorrow } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 interface CodeProps {
-  node?: any;
   inline?: boolean;
   className?: string;
   children?: React.ReactNode;
@@ -14,7 +13,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
   return (
     <ReactMarkdown
       components={{
-        code({ node, inline, className, children, ...props }: CodeProps) {
+        code({ inline, className, children, ...props }: CodeProps) {
           const match = /language-(\w+)/.exec(className || "");
           return !inline && match ? (
             <SyntaxHighlighter

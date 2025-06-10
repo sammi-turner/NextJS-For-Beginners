@@ -44,7 +44,7 @@ const PostPage: React.FC<PostPageProps> = ({
       <div className="card card-page">
         <h1 className="post-title">{title}</h1>
         <div className="post-date">Posted on {date}</div>
-        <img src={cover_image} alt="" />
+        <Image src={cover_image} alt="" />
         <div className="post-body">
           <MarkdownRenderer content={content} />
         </div>

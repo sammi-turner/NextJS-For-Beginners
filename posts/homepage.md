@@ -86,8 +86,7 @@ export const sortByDate = (
 export default function Post({ post }: PostProps) {
   return (
     <div className="card">
-      <img src={post.frontmatter.cover_image} alt="" />
-
+      <Image src={post.frontmatter.cover_image} alt="cover image" />
       <div className="post-date">Posted on {post.frontmatter.date}</div>
 
       <h3>{post.frontmatter.title}</h3>

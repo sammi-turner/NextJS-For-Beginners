@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
+import Image from "next/image";
 
 // Define types for the frontmatter data
 interface Frontmatter {
@@ -31,7 +32,7 @@ const PostPage: React.FC<PostPageProps> = ({
       <div className="card card-page">
         <h1 className="post-title">{title}</h1>
         <div className="post-date">Posted on {date}</div>
-        <img src={cover_image} alt="" />
+        <Image src={cover_image} alt="" />
         <div className="post-body">
           <MarkdownRenderer content={content} />
         </div>
