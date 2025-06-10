@@ -6,7 +6,6 @@ import MarkdownRenderer from "@/components/MarkdownRenderer";
 
 export default function PostPage({
   frontmatter: { title, date, cover_image },
-  slug,
   content,
 }) {
   return (
