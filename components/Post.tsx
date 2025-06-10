@@ -1,6 +1,22 @@
 import Link from "next/link";
 
-export default function Post({ post }) {
+// Define the frontmatter interface here if it's only used by the Post component
+interface Frontmatter {
+  title: string;
+  date: string;
+  excerpt?: string;
+  cover_image?: string;
+}
+
+// Export the Post props type for use in other components
+export interface PostProps {
+  post: {
+    slug: string;
+    frontmatter: Frontmatter;
+  };
+}
+
+export default function Post({ post }: PostProps) {
   return (
     <div className="card">
       <img src={post.frontmatter.cover_image} alt="" />

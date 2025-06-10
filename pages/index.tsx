@@ -2,10 +2,30 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Head from "next/head";
-import Post from "../components/Post";
 import { sortByDate } from "../utils";
+import Post from "@/components/Post";
 
-export default function Home({ posts }) {
+// Define types for your frontmatter data
+interface Frontmatter {
+  title: string;
+  date: string;
+  excerpt?: string;
+  cover_image?: string;
+}
+
+export interface PostProps {
+  post: {
+    slug: string;
+    frontmatter: Frontmatter;
+  };
+}
+
+// Define props for the Home component
+interface HomeProps {
+  posts: PostProps["post"][]; // Array of posts matching the Post component's expected type
+}
+
+export default function Home({ posts }: HomeProps) {
   return (
     <div>
       <Head>
@@ -21,22 +41,19 @@ export default function Home({ posts }) {
   );
 }
 
-export async function getStaticProps() {
-  // Get files from the posts dir
+export async function getStaticProps(): Promise<{ props: HomeProps }> {
   const files = fs.readdirSync(path.join("posts"));
 
-  // Get slug and frontmatter from posts
   const posts = files.map((filename) => {
-    // Create slug
     const slug = filename.replace(".md", "");
-
-    // Get frontmatter
     const markdownWithMeta = fs.readFileSync(
       path.join("posts", filename),
       "utf-8"
     );
 
-    const { data: frontmatter } = matter(markdownWithMeta);
+    const { data: frontmatter } = matter(markdownWithMeta) as unknown as {
+      data: Frontmatter;
+    };
 
     return {
       slug,

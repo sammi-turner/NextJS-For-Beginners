@@ -57,7 +57,7 @@ const PostPage: React.FC<PostPageProps> = ({
 ### 2. getStaticPaths
 
 ```tsx
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const files = fs.readdirSync(path.join("posts"));
 
   const paths = files.map((filename) => ({
@@ -70,13 +70,14 @@ export async function getStaticPaths() {
     paths,
     fallback: false,
   };
-}
+};
 ```
 
 ### 3. getStaticProps
 
 ```tsx
-export async function getStaticProps({ params: { slug } }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const slug = params?.slug as string;
   const markdownWithMeta = fs.readFileSync(
     path.join("posts", slug + ".md"),
     "utf-8"
@@ -91,7 +92,7 @@ export async function getStaticProps({ params: { slug } }) {
       content,
     },
   };
-}
+};
 ```
 
 ## The Build Process

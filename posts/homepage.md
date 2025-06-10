@@ -29,7 +29,7 @@ This article explains how the post listing is implemented using Next.js and CSS 
 The homepage uses Next.js static generation to fetch post data at build time:
 
 ```tsx
-export async function getStaticProps() {
+export async function getStaticProps(): Promise<{ props: HomeProps }> {
   const files = fs.readdirSync(path.join("posts"));
 
   const posts = files.map((filename) => {
@@ -38,7 +38,10 @@ export async function getStaticProps() {
       path.join("posts", filename),
       "utf-8"
     );
-    const { data: frontmatter } = matter(markdownWithMeta);
+
+    const { data: frontmatter } = matter(markdownWithMeta) as unknown as {
+      data: Frontmatter;
+    };
 
     return {
       slug,
@@ -59,7 +62,10 @@ export async function getStaticProps() {
 Posts are sorted chronologically using the utility function:
 
 ```tsx
-export const sortByDate = (a: any, b: any): number => {
+export const sortByDate = (
+  a: { frontmatter: { date: string | number | Date } },
+  b: { frontmatter: { date: string | number | Date } }
+): number => {
   return (
     (new Date(a.frontmatter.date) as unknown as number) -
     (new Date(b.frontmatter.date) as unknown as number)
@@ -77,13 +83,17 @@ export const sortByDate = (a: any, b: any): number => {
 ### Component Structure
 
 ```tsx
-export default function Post({ post }) {
+export default function Post({ post }: PostProps) {
   return (
     <div className="card">
       <img src={post.frontmatter.cover_image} alt="" />
+
       <div className="post-date">Posted on {post.frontmatter.date}</div>
+
       <h3>{post.frontmatter.title}</h3>
+
       <p>{post.frontmatter.excerpt}</p>
+
       <Link href={`/blog/${post.slug}`} className="btn">
         read
       </Link>

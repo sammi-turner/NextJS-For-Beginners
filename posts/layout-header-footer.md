@@ -111,11 +111,12 @@ footer {
 The components are integrated through `_app.tsx`:
 
 ```tsx
+import type { AppProps } from "next/app";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import "@/styles/globals.css";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Header />
