@@ -1,11 +1,11 @@
 ---
 title: "Styling the Blog"
 date: "2025-06-06"
-excerpt: "The visual consistency of this blog is maintained through a single style sheet."
+excerpt: "This blog is styled with both a global CSS file and JSX scoped styles."
 cover_image: "/img6.jpg"
 ---
 
-## One Stylesheet
+## Global Stylesheet
 
 Our global CSS file at `styles/globals.css` and imported in `_app.tsx` ensures app-wide coverage. The CSS follows a flat structure without nesting, making it easier to maintain and reason about. A mobile-first approach guides the responsive design implementation, and semantic class naming conventions help developers understand style purposes at a glance.
 
@@ -79,7 +79,7 @@ The typography system relies primarily on the Tahoma typeface with fallbacks to 
 
 ## Color Palette
 
-The color scheme is built around a restrained palette that supports readability and visual hierarchy. The primary background uses a light gray (#f9f9f9) that reduces eye strain, while headers and footers feature a dark blue (#36445f) that provides strong contrast. Steelblue serves as the primary accent color throughout the interface. Text colors automatically adapt to their backgrounds, maintaining proper contrast ratios in all contexts.
+The primary background uses a light gray (#f9f9f9) that reduces eye strain, while headers and footers feature a dark blue (#36445f) that provides strong contrast. Steelblue serves as the primary accent color throughout the interface. Text colors automatically adapt to their backgrounds, maintaining proper contrast ratios in all contexts.
 
 ## Responsive Design
 
@@ -129,14 +129,46 @@ Post-specific elements like dates and code blocks receive customized styling. Da
 }
 ```
 
-## Performance Considerations
+## JSX Scoped Styles
 
-The stylesheet is optimized for performance through several deliberate choices. Selector complexity is minimized to reduce rendering overhead, and expensive CSS properties are used sparingly. The entire file remains compact at under 5KB, ensuring fast loading times. Render optimization techniques include strategic use of GPU-accelerated properties and appropriate will-change declarations where animations occur.
+This code appears in our `pages/blog/[slug].tsx` file.
 
-## Maintenance Strategy
+```jsx
+style={{
+  position: "relative",
+  width: "100%",
+  height: "400px",
+  marginBottom: "2rem",
+}}
+```
 
-The stylesheet is organized to support long-term maintainability. Related styles are grouped logically with clear section comments, and properties within rulesets are ordered alphabetically for consistent scanning. This structure makes it straightforward to add new global styles, extend the color system, or introduce additional utility classes as the blog evolves.
+```jsx
+<Image
+  src={cover_image}
+  alt="post image"
+  fill
+  style={{ objectFit: "cover", borderRadius: "1rem" }}
+  unoptimized // Only if images are already optimized
+/>
+```
 
-## Browser Support
+These styling blocks are in `components/Post.tsx`.
 
-The styling system targets modern evergreen browsers without specific support for legacy platforms like IE11. A progressive enhancement approach ensures core functionality remains accessible even when advanced styling features aren't available. Vendor prefixing is handled primarily through an Autoprefixer in the build process, with manual prefixes only applied where absolutely necessary to balance support requirements with bundle size.
+```jsx
+style={{
+  position: "relative",
+  width: "100%",
+  height: "200px",
+  marginBottom: "1.5rem",
+}}
+```
+
+```jsx
+<Image
+  src={post.frontmatter.cover_image}
+  alt="cover image"
+  fill
+  style={{ objectFit: "cover" }}
+  unoptimized // Only if images are already optimized
+/>
+```
