@@ -32,7 +32,23 @@ const PostPage: React.FC<PostPageProps> = ({
       <div className="card card-page">
         <h1 className="post-title">{title}</h1>
         <div className="post-date">Posted on {date}</div>
-        <Image src={cover_image} alt="" />
+        {/* Add wrapper div with fixed aspect ratio */}
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "400px",
+            marginBottom: "2rem",
+          }}
+        >
+          <Image
+            src={cover_image}
+            alt="post image"
+            fill
+            style={{ objectFit: "cover", borderRadius: "1rem" }}
+            unoptimized // Only if images are already optimized
+          />
+        </div>
         <div className="post-body">
           <MarkdownRenderer content={content} />
         </div>
