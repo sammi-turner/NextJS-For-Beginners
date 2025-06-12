@@ -29,7 +29,7 @@ export default function Home({ posts }: HomeProps) {
   return (
     <div>
       <Head>
-        <title>Dev Blog</title>
+        <title>Next.js For Beginners</title>
       </Head>
 
       <div className="posts">

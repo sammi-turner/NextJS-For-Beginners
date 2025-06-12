@@ -9,6 +9,24 @@ cover_image: "/img5.jpg"
 
 The code for out homepage is located at `pages/index.tsx` and its role is to display a grid of all blog posts. The page consists of several key components including post cards that display titles, excerpts, and metadata, a responsive grid layout, and sorting functionality by date.
 
+```tsx
+export default function Home({ posts }: HomeProps) {
+  return (
+    <div>
+      <Head>
+        <title>Next.js For Beginners</title>
+      </Head>
+
+      <div className="posts">
+        {posts.map((post, index) => (
+          <Post key={index} post={post} />
+        ))}
+      </div>
+    </div>
+  );
+}
+```
+
 ## Data Fetching Implementation
 
 The homepage uses static generation to fetch post data at build time through the `getStaticProps` function. This function reads markdown files from the posts directory, extracts their frontmatter, and returns the processed posts sorted by date.
