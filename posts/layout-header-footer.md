@@ -14,34 +14,34 @@ Here's the code structure for the header:
 ```tsx
 export default function Header() {
   return (
-    <header>
-      <div className="container">
-        <h2>Next.js For Beginners</h2>
-      </div>
+    <header className="container">
+      <a
+        href="https://github.com/sammi-turner/NextJS-For-Beginners"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <h2>NextJS For Beginners</h2>
+      </a>
     </header>
   );
 }
 ```
 
-The component uses a semantic `<header>` tag for accessibility and includes a `div` with the shared `container` class to maintain consistent width and padding. Currently, it displays a static title, but this could easily be extended to include navigation links or other dynamic elements.
+The component uses a semantic `<header>` tag for accessibility with the shared `container` class to maintain consistent width and padding. It displays a title that is also an external link to the "NextJS For Beginners" GitHub repo.
 
 ## The Footer Component
 
-The footer appears at the bottom of every page, containing copyright information and a link back to the homepage. It is located at `components/Footer.tsx` and leverages Next.js's `Link` component for smooth client-side navigation.
-
-Here's the implementation:
+The footer appears at the bottom of every page, containing authorship info and a link back to the top of the homepage. It is located at `components/Footer.tsx` and uses Next.js's built-in `Link` component for client-side navigation.
 
 ```tsx
 import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer>
-      <div className="container">
-        <Link href="/" passHref>
-          <h2>Sammi Turner (2025)</h2>
-        </Link>
-      </div>
+    <footer className="container">
+      <Link href="/" passHref>
+        <h2>Sammi Turner (2025)</h2>
+      </Link>
     </footer>
   );
 }
@@ -51,24 +51,21 @@ Like the header, the footer uses a semantic `<footer>` tag and the `container` c
 
 ## Styling the Layout
 
-Both components share styling from the global CSS file at `styles/globals.css`. The header features a dark background with light text for contrast, while the footer includes padding and margin for proper spacing.
+The header uses `border-bottom` to draw a line below the title, while the footer uses `border-top` to draw a line above the copyright info. The container class has a `max-width` property to mark out the boundary of the viewport where the blog is displayed.
 
 Here are the relevant CSS rules:
 
 ```css
 header {
-  background: #36445f;
-  color: #f9f9f9;
-  padding: 1rem;
+  border-bottom: 1px solid;
 }
 
 footer {
-  padding: 1rem;
-  margin-top: 3rem;
+  border-top: 1px solid;
 }
 
 .container {
-  max-width: 76rem;
+  max-width: 80rem;
   margin: auto;
   overflow: auto;
   padding: 0 1rem;
@@ -79,7 +76,7 @@ The `container` class ensures a consistent max-width and responsive padding acro
 
 ## Integration in the App
 
-The header and footer are integrated through `_app.tsx`, which wraps every page with these components. Here's how they are included:
+The header and footer are integrated into the layout through `_app.tsx`, which wraps every page with these components:
 
 ```tsx
 import type { AppProps } from "next/app";
@@ -89,13 +86,15 @@ import "@/styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <div>
       <Header />
       <main className="container">
         <Component {...pageProps} />
       </main>
+      <br />
+      <br />
       <Footer />
-    </>
+    </div>
   );
 }
 

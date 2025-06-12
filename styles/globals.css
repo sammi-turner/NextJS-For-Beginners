@@ -7,6 +7,7 @@
 body {
   font-family: "Tahoma", sans-serif;
   font-weight: normal;
+  color: #212121;
   background: #f9f9f9;
 }
 
@@ -17,6 +18,10 @@ h4 {
   margin-bottom: 2rem;
 }
 
+img {
+  border-radius: 1rem;
+}
+
 p {
   margin-bottom: 1rem;
 }
@@ -25,28 +30,25 @@ li {
   margin-bottom: 0.6rem;
 }
 
-link {
-  text-decoration: underline;
-  color: blue;
+a {
+  color: #212121;
+  text-decoration: none;
 }
 
-img {
-  border-radius: 1rem;
+a:hover {
+  color: steelblue;
 }
 
 header {
-  background: #36445f;
-  color: #f9f9f9;
-  padding: 1rem;
+  border-bottom: 1px solid;
 }
 
 footer {
-  padding: 1rem;
-  margin-top: 3rem;
+  border-top: 1px solid;
 }
 
 .container {
-  max-width: 76rem;
+  max-width: 80rem;
   margin: auto;
   overflow: auto;
   padding: 0 1rem;
@@ -78,13 +80,6 @@ footer {
   margin-bottom: 1rem;
 }
 
-.posts {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
-  margin-top: 3rem;
-}
-
 .card {
   padding: 1.5rem;
   border-radius: 1rem;
@@ -93,6 +88,14 @@ footer {
 
 .card-page {
   padding: 1.5rem 3rem;
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .post-title {

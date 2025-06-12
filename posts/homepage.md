@@ -112,7 +112,7 @@ export default function Post({ post }: PostProps) {
 
 ## Layout and Styling
 
-The posts grid is implemented using CSS Grid, creating a responsive layout that adapts to different screen sizes. On desktop views, posts appear in a two-column grid, while mobile devices display a single column for better readability.
+The posts grid is implemented using CSS Grid, creating a responsive layout that adapts to different screen sizes.
 
 ```css
 .posts {
@@ -120,8 +120,13 @@ The posts grid is implemented using CSS Grid, creating a responsive layout that 
   grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
   margin-top: 3rem;
+  margin-bottom: 3rem;
 }
+```
 
+On desktop views, posts appear in a two-column grid, while mobile devices display a single column for better readability.
+
+```css
 @media (max-width: 50rem) {
   .posts {
     grid-template-columns: 1fr;
@@ -129,18 +134,17 @@ The posts grid is implemented using CSS Grid, creating a responsive layout that 
 }
 ```
 
-Each post card features consistent styling with subtle hover effects to enhance user interaction. The cards include padding, rounded corners, and a shadow effect that creates visual depth.
+The post cards include padding, rounded corners, and a shadow effect that creates visual depth.
 
 ```css
 .card {
   padding: 1.5rem;
   border-radius: 1rem;
   box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease;
 }
 
-.card:hover {
-  transform: translateY(-0.3rem);
+.card-page {
+  padding: 1.5rem 3rem;
 }
 ```
 

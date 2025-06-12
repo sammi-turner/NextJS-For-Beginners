@@ -116,23 +116,25 @@ Beyond the basics, the renderer handles code blocks with language-specific highl
 
 ### Global CSS Rules
 
-The following styles in `globals.css` affect the appearance of Markdown output, ensuring consistency and readability:
+The following styles affect the appearance of the Markdown posts that are rendered:
 
 ```css
+.post-title {
+  margin: 1rem 0;
+}
+
+.post-date {
+  border-radius: 1rem;
+  background: #e5e4e2;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 0.3rem 1rem;
+}
+
 .post-body pre {
   padding: 2rem;
   margin: 2rem 0;
   line-height: 2.3;
-  border-radius: 0.5rem;
-  background: #f5f5f5;
-  overflow-x: auto;
-}
-
-.post-body code {
-  font-family: monospace;
-  background: #f5f5f5;
-  padding: 0.2rem 0.4rem;
-  border-radius: 0.2rem;
 }
 ```
 

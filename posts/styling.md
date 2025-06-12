@@ -13,12 +13,21 @@ Our global CSS file at `styles/globals.css` and imported in `_app.tsx` ensures a
 
 ### Base Element Styles
 
-The stylesheet begins by establishing sensible defaults for raw HTML elements. The body element sets the foundation with a clean Tahoma font stack and light gray background. Headings receive consistent vertical spacing with 2rem margins on both top and bottom, creating a clear content hierarchy. Images are styled to be fluid containers with pleasant rounded corners.
+The stylesheet begins by establishing sensible defaults for raw HTML elements. The body element sets the foundation with the Tahoma font, an off-white background and off-black foreground.
+
+Headings receive consistent vertical spacing with 2rem margins on both top and bottom, creating a clear content hierarchy. Images are styled to have rounded corners.
 
 ```css
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Tahoma", sans-serif;
   font-weight: normal;
+  color: #212121;
   background: #f9f9f9;
 }
 
@@ -36,54 +45,28 @@ img {
 
 ### Layout Components
 
-Structural elements receive special attention to ensure proper content organization. The container class establishes a centered content area with appropriate padding and overflow handling. Header and footer elements share a distinctive dark blue color scheme that contrasts with the light main content area.
+The container class establishes a centered content area with appropriate padding and overflow handling. The header and footer elemnts are both given a thin border of 1 pixel:
 
 ```css
+header {
+  border-bottom: 1px solid;
+}
+
+footer {
+  border-top: 1px solid;
+}
+
 .container {
-  max-width: 76rem;
+  max-width: 80rem;
   margin: auto;
   overflow: auto;
   padding: 0 1rem;
 }
-
-header,
-footer {
-  background: #36445f;
-  color: #f9f9f9;
-  padding: 1rem;
-}
 ```
-
-### Utility Classes
-
-Reusable utility patterns like buttons are defined for consistent implementation throughout the application. The button class includes subtle interactive feedback through a gentle scale transformation on hover, enhancing the user experience.
-
-```css
-.btn {
-  display: inline-block;
-  background: steelblue;
-  color: #fff;
-  padding: 0.5rem 0.7rem;
-  border-radius: 0.3rem;
-  transition: transform 0.2s ease;
-}
-
-.btn:hover {
-  transform: scale(0.98);
-}
-```
-
-## Typography System
-
-The typography system relies primarily on the Tahoma typeface with fallbacks to system sans-serif fonts for maximum compatibility. Font weights are normalized across elements to maintain visual consistency. The vertical rhythm is carefully controlled using a base spacing unit of 1rem, with paragraph elements receiving 1rem bottom margins and headings getting 2rem spacing on both top and bottom.
-
-## Color Palette
-
-The primary background uses a light gray (#f9f9f9) that reduces eye strain, while headers and footers feature a dark blue (#36445f) that provides strong contrast. Steelblue serves as the primary accent color throughout the interface. Text colors automatically adapt to their backgrounds, maintaining proper contrast ratios in all contexts.
 
 ## Responsive Design
 
-The responsive implementation uses a single mobile breakpoint at 50rem (800px) to adjust layouts for smaller screens. This approach keeps the CSS manageable while still providing good mobile experiences. Elements like the posts grid switch to a single-column layout below this breakpoint. Fluid design principles ensure container elements, images, and spacing adapt smoothly across viewport sizes.
+The responsive implementation uses a single mobile breakpoint at 50rem to adjust layouts for smaller screens. Elements like the posts grid switch to a single-column layout below this breakpoint. This ensures container elements, images, and spacing adapt smoothly across different viewport sizes.
 
 ```css
 @media (max-width: 50rem) {
@@ -95,9 +78,41 @@ The responsive implementation uses a single mobile breakpoint at 50rem (800px) t
 
 ## Component-Specific Styles
 
-### Card Components
+### Button Styling
 
-Card elements receive special styling to create visual distinction and hierarchy. Both regular cards and page cards feature rounded corners and subtle shadows, with page cards receiving additional horizontal padding to better frame their content.
+The `btn` class has the bulk of the button styling, but is supplemented with classes that cover user interactions with the button and how the back button is displayed above individual posts.
+
+```css
+.btn {
+  margin-top: 0.6rem;
+  display: inline-block;
+  background: steelblue;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: "Tahoma", sans-serif;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:hover {
+  transform: scale(0.98);
+}
+
+.btn-back {
+  margin-bottom: 1rem;
+}
+```
+
+### Card Styles
+
+Card elements receive special styling to create visual distinction and hierarchy. Both regular cards and page cards feature rounded corners and subtle shadows, with page cards having additional padding to better frame their content.
 
 ```css
 .card {
@@ -113,13 +128,19 @@ Card elements receive special styling to create visual distinction and hierarchy
 
 ### Post Elements
 
-Post-specific elements like dates and code blocks receive customized styling. Dates are highlighted with a light gray background and rounded edges, while code blocks in post content get generous padding and increased line height for better readability.
+Post elements like the title, date and post body have custom styling:
 
 ```css
+.post-title {
+  margin: 1rem 0;
+}
+
 .post-date {
-  background: #e5e4e2;
-  padding: 0.3rem 1rem;
   border-radius: 1rem;
+  background: #e5e4e2;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 0.3rem 1rem;
 }
 
 .post-body pre {
@@ -131,7 +152,7 @@ Post-specific elements like dates and code blocks receive customized styling. Da
 
 ## JSX Scoped Styles
 
-This code appears in our `pages/blog/[slug].tsx` file.
+These JSX code blocks define scoped styles in the `pages/blog/[slug].tsx` file.
 
 ```jsx
 style={{
@@ -152,7 +173,7 @@ style={{
 />
 ```
 
-These styling blocks are in `components/Post.tsx`.
+These JSX blocks are used in `components/Post.tsx`.
 
 ```jsx
 style={{
