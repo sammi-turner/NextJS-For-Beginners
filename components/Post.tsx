@@ -25,7 +25,7 @@ export default function Post({ post }: PostProps) {
         style={{
           position: "relative",
           width: "100%",
-          height: "200px",
+          height: "15rem",
           marginBottom: "1.5rem",
         }}
       >

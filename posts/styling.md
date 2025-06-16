@@ -158,7 +158,7 @@ These JSX code blocks define scoped styles in the `pages/blog/[slug].tsx` file.
 style={{
   position: "relative",
   width: "100%",
-  height: "400px",
+  height: "15rem",
   marginBottom: "2rem",
 }}
 ```
@@ -179,7 +179,7 @@ These JSX blocks are used in `components/Post.tsx`.
 style={{
   position: "relative",
   width: "100%",
-  height: "200px",
+  height: "15rem",
   marginBottom: "1.5rem",
 }}
 ```
