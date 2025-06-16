@@ -26,7 +26,7 @@ export default function Post({ post }: PostProps) {
           position: "relative",
           width: "100%",
           height: "15rem",
-          marginBottom: "1.5rem",
+          marginBottom: "3rem",
         }}
       >
         <Image

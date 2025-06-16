@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="container">
       <Link href="/" passHref>
-        <h2>Sammi Turner (2025)</h2>
+        <h3>Sammi Turner (2025)</h3>
       </Link>
     </footer>
   );

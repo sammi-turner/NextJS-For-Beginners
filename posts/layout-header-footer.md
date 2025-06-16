@@ -49,30 +49,7 @@ export default function Footer() {
 
 Like the header, the footer uses a semantic `<footer>` tag and the `container` class for alignment. The content is minimal but could be expanded with additional features like social media links or a sitemap.
 
-## Styling the Layout
-
-The header uses `border-bottom` to draw a line below the title, while the footer uses `border-top` to draw a line above the copyright info. The container class has a `max-width` property to mark out the boundary of the viewport where the blog is displayed.
-
-Here are the relevant CSS rules:
-
-```css
-header {
-  border-bottom: 1px solid;
-}
-
-footer {
-  border-top: 1px solid;
-}
-
-.container {
-  max-width: 80rem;
-  margin: auto;
-  overflow: auto;
-  padding: 0 1rem;
-}
-```
-
-The `container` class ensures a consistent max-width and responsive padding across all components, creating a polished and unified layout.
+The `container` class ensures a consistent max-width and responsive padding across all components, creating a unified layout.
 
 ## Integration in the App
 
@@ -101,8 +78,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 export default MyApp;
 ```
 
-This setup ensures the header and footer appear on every page while maintaining consistent styling. The main content also uses the `container` class for alignment, creating a seamless visual flow.
+This setup ensures the header and footer appear on every page while maintaining consistent styling. The main content also uses the `container` class for alignment.
 
 ## Potential Enhancements
 
-While the current implementation is simple and effective, there are opportunities for improvement. The header could include navigation links, a theme toggle, or a dynamic title. The footer might benefit from social media links, a newsletter signup, or additional site information.
+While the current implementation is simple, there are opportunities for improvement. The header could include navigation links, a theme toggle. The footer might benefit from social media links, a newsletter signup, or additional site information.

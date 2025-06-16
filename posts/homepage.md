@@ -121,6 +121,9 @@ The posts grid is implemented using CSS Grid, creating a responsive layout that 
   gap: 3rem;
   margin-top: 3rem;
   margin-bottom: 3rem;
+  padding: 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
 }
 ```
 

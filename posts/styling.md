@@ -15,7 +15,7 @@ Our global CSS file at `styles/globals.css` and imported in `_app.tsx` ensures a
 
 The stylesheet begins by establishing sensible defaults for raw HTML elements. The body element sets the foundation with the Tahoma font, an off-white background and off-black foreground.
 
-Headings receive consistent vertical spacing with 2rem margins on both top and bottom, creating a clear content hierarchy. Images are styled to have rounded corners.
+Headings receive consistent vertical spacing with 2rem margins on both top and bottom, creating a content hierarchy. Images are styled to have rounded corners.
 
 ```css
 * {
@@ -27,7 +27,7 @@ Headings receive consistent vertical spacing with 2rem margins on both top and b
 body {
   font-family: "Tahoma", sans-serif;
   font-weight: normal;
-  color: #212121;
+  color: #301934;
   background: #f9f9f9;
 }
 
@@ -45,15 +45,16 @@ img {
 
 ### Layout Components
 
-The container class establishes a centered content area with appropriate padding and overflow handling. The header and footer elemnts are both given a thin border of 1 pixel:
+The header and footer share the same styling. The container class establishes a centered content area with appropriate padding and overflow handling.
 
 ```css
-header {
-  border-bottom: 1px solid;
-}
-
+header,
 footer {
-  border-top: 1px solid;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1 rem;
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
 .container {
@@ -106,13 +107,14 @@ The `btn` class has the bulk of the button styling, but is supplemented with cla
 }
 
 .btn-back {
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 ```
 
 ### Card Styles
 
-Card elements receive special styling to create visual distinction and hierarchy. Both regular cards and page cards feature rounded corners and subtle shadows, with page cards having additional padding to better frame their content.
+Card elements receive special styling to create visual hierarchy. Both regular cards and page cards feature rounded corners and subtle shadows, with page cards having additional padding to better frame their content.
 
 ```css
 .card {
@@ -128,9 +130,20 @@ Card elements receive special styling to create visual distinction and hierarchy
 
 ### Post Elements
 
-Post elements like the title, date and post body have custom styling:
+Post elements like the title, date and post body have their own custom classes:
 
 ```css
+.posts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding: 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
+}
+
 .post-title {
   margin: 1rem 0;
 }

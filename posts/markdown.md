@@ -116,9 +116,20 @@ Beyond the basics, the renderer handles code blocks with language-specific highl
 
 ### Global CSS Rules
 
-The following styles affect the appearance of the Markdown posts that are rendered:
+The following styles affect the appearance of the Markdown posts:
 
 ```css
+.posts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding: 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
+}
+
 .post-title {
   margin: 1rem 0;
 }

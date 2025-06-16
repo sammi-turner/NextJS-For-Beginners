@@ -7,7 +7,7 @@
 body {
   font-family: "Tahoma", sans-serif;
   font-weight: normal;
-  color: #212121;
+  color: #301934;
   background: #f9f9f9;
 }
 
@@ -31,7 +31,7 @@ li {
 }
 
 a {
-  color: #212121;
+  color: #301934;
   text-decoration: none;
 }
 
@@ -39,12 +39,13 @@ a:hover {
   color: steelblue;
 }
 
-header {
-  border-bottom: 1px solid;
-}
-
+header,
 footer {
-  border-top: 1px solid;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1 rem;
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
 .container {
@@ -77,6 +78,7 @@ footer {
 }
 
 .btn-back {
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -96,6 +98,9 @@ footer {
   gap: 3rem;
   margin-top: 3rem;
   margin-bottom: 3rem;
+  padding: 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
 }
 
 .post-title {
