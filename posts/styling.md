@@ -15,7 +15,7 @@ Our global CSS file at `styles/globals.css` and imported in `_app.tsx` ensures a
 
 The stylesheet begins by establishing sensible defaults for raw HTML elements. The body element sets the foundation with the Tahoma font, an off-white background and off-black foreground.
 
-Headings receive consistent vertical spacing with 2rem margins on both top and bottom, creating a content hierarchy. Images are styled to have rounded corners.
+Headings receive consistent vertical spacing with 2rem margins on both top and bottom, creating a content hierarchy. Images are styled to have rounded corners. Line heights are tighter for headings (1.2) than the rest of the text (1.6).
 
 ```css
 * {
@@ -27,7 +27,7 @@ Headings receive consistent vertical spacing with 2rem margins on both top and b
 body {
   font-family: "Tahoma", sans-serif;
   font-weight: normal;
-  line-height: normal;
+  line-height: 1.6;
   color: #301934;
   background: #f9f9f9;
 }
@@ -35,6 +35,7 @@ body {
 h2,
 h3,
 h4 {
+  line-height: 1.2;
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
