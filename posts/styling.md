@@ -27,6 +27,7 @@ Headings receive consistent vertical spacing with 2rem margins on both top and b
 body {
   font-family: "Tahoma", sans-serif;
   font-weight: normal;
+  line-height: normal;
   color: #301934;
   background: #f9f9f9;
 }
