@@ -25,22 +25,6 @@ interface HomeProps {
   posts: PostProps["post"][]; // Array of posts matching the Post component's expected type
 }
 
-export default function Home({ posts }: HomeProps) {
-  return (
-    <div>
-      <Head>
-        <title>Next.js For Beginners</title>
-      </Head>
-
-      <div className="posts">
-        {posts.map((post, index) => (
-          <Post key={index} post={post} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export async function getStaticProps(): Promise<{ props: HomeProps }> {
   const files = fs.readdirSync(path.join("posts"));
 
@@ -67,3 +51,21 @@ export async function getStaticProps(): Promise<{ props: HomeProps }> {
     },
   };
 }
+
+const Home = ({ posts }: HomeProps) => {
+  return (
+    <div>
+      <Head>
+        <title>Next.js For Beginners</title>
+      </Head>
+
+      <div className="posts">
+        {posts.map((post, index) => (
+          <Post key={index} post={post} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Home;

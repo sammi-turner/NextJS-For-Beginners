@@ -1,4 +1,3 @@
-// components/MarkdownRenderer.tsx
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { tomorrow } from "react-syntax-highlighter/dist/cjs/styles/prism";
@@ -9,7 +8,7 @@ interface CodeProps {
   children?: React.ReactNode;
 }
 
-export default function MarkdownRenderer({ content }: { content: string }) {
+const MarkdownRenderer = ({ content }: { content: string }) => {
   return (
     <ReactMarkdown
       components={{
@@ -35,4 +34,6 @@ export default function MarkdownRenderer({ content }: { content: string }) {
       {content}
     </ReactMarkdown>
   );
-}
+};
+
+export default MarkdownRenderer;

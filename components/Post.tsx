@@ -17,7 +17,7 @@ export interface PostProps {
   };
 }
 
-export default function Post({ post }: PostProps) {
+const Post = ({ post }: PostProps) => {
   return (
     <div className="card">
       {/* Add wrapper div with fixed aspect ratio */}
@@ -45,4 +45,6 @@ export default function Post({ post }: PostProps) {
       </Link>
     </div>
   );
-}
+};
+
+export default Post;

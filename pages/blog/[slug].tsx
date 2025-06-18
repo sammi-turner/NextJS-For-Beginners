@@ -20,6 +20,39 @@ interface PostPageProps {
   slug: string;
 }
 
+export const getStaticPaths: GetStaticPaths = async () => {
+  const files = fs.readdirSync(path.join("posts"));
+
+  const paths = files.map((filename) => ({
+    params: {
+      slug: filename.replace(".md", ""),
+    },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const slug = params?.slug as string;
+  const markdownWithMeta = fs.readFileSync(
+    path.join("posts", slug + ".md"),
+    "utf-8"
+  );
+
+  const { data: frontmatter, content } = matter(markdownWithMeta);
+
+  return {
+    props: {
+      frontmatter,
+      slug,
+      content,
+    },
+  };
+};
+
 const PostPage: React.FC<PostPageProps> = ({
   frontmatter: { title, date, cover_image },
   content,
@@ -55,39 +88,6 @@ const PostPage: React.FC<PostPageProps> = ({
       </div>
     </div>
   );
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const files = fs.readdirSync(path.join("posts"));
-
-  const paths = files.map((filename) => ({
-    params: {
-      slug: filename.replace(".md", ""),
-    },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = params?.slug as string;
-  const markdownWithMeta = fs.readFileSync(
-    path.join("posts", slug + ".md"),
-    "utf-8"
-  );
-
-  const { data: frontmatter, content } = matter(markdownWithMeta);
-
-  return {
-    props: {
-      frontmatter,
-      slug,
-      content,
-    },
-  };
 };
 
 export default PostPage;

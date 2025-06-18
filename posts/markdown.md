@@ -14,7 +14,6 @@ The `MarkdownRenderer` component is located at `components/MarkdownRenderer.tsx`
 ### Component Structure
 
 ```tsx
-// components/MarkdownRenderer.tsx
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { tomorrow } from "react-syntax-highlighter/dist/cjs/styles/prism";
@@ -25,7 +24,7 @@ interface CodeProps {
   children?: React.ReactNode;
 }
 
-export default function MarkdownRenderer({ content }: { content: string }) {
+const MarkdownRenderer = ({ content }: { content: string }) => {
   return (
     <ReactMarkdown
       components={{
@@ -51,7 +50,9 @@ export default function MarkdownRenderer({ content }: { content: string }) {
       {content}
     </ReactMarkdown>
   );
-}
+};
+
+export default MarkdownRenderer;
 ```
 
 ## Key Dependencies
@@ -111,43 +112,6 @@ The renderer supports all standard Markdown elements, including headings, paragr
 ### Extended Features
 
 Beyond the basics, the renderer handles code blocks with language-specific highlighting, inline code snippets, tables (using standard Markdown syntax), and even custom HTML when necessary.
-
-## Styling Considerations
-
-### Global CSS Rules
-
-The following styles affect the appearance of the Markdown posts:
-
-```css
-.posts {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  padding: 3rem;
-  border-radius: 1rem;
-  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
-}
-
-.post-title {
-  margin: 1rem 0;
-}
-
-.post-date {
-  border-radius: 1rem;
-  background: #e5e4e2;
-  margin-top: 0.5rem;
-  margin-bottom: 2rem;
-  padding: 0.3rem 1rem;
-}
-
-.post-body pre {
-  padding: 2rem;
-  margin: 2rem 0;
-  line-height: 2.3;
-}
-```
 
 ### Theme Customization
 

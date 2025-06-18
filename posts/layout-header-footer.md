@@ -12,7 +12,7 @@ The header serves as the top navigation bar and branding element for the blog. I
 Here's the code structure for the header:
 
 ```tsx
-export default function Header() {
+const Header = () => {
   return (
     <header className="container">
       <a
@@ -24,7 +24,9 @@ export default function Header() {
       </a>
     </header>
   );
-}
+};
+
+export default Header;
 ```
 
 The component uses a semantic `<header>` tag for accessibility with the shared `container` class to maintain consistent width and padding. It displays a title that is also an external link to the "NextJS For Beginners" GitHub repo.
@@ -36,15 +38,17 @@ The footer appears at the bottom of every page, containing authorship info and a
 ```tsx
 import Link from "next/link";
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className="container">
       <Link href="/" passHref>
-        <h2>Sammi Turner (2025)</h2>
+        <h3>Sammi Turner (2025)</h3>
       </Link>
     </footer>
   );
-}
+};
+
+export default Footer;
 ```
 
 Like the header, the footer uses a semantic `<footer>` tag and the `container` class for alignment. The content is minimal but could be expanded with additional features like social media links or a sitemap.
@@ -61,19 +65,19 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import "@/styles/globals.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <div>
       <Header />
       <main className="container">
         <Component {...pageProps} />
+        <br />
       </main>
-      <br />
       <br />
       <Footer />
     </div>
   );
-}
+};
 
 export default MyApp;
 ```

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className="container">
       <Link href="/" passHref>
@@ -8,4 +8,6 @@ export default function Footer() {
       </Link>
     </footer>
   );
-}
+};
+
+export default Footer;

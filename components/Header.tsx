@@ -1,4 +1,4 @@
-export default function Header() {
+const Header = () => {
   return (
     <header className="container">
       <a
@@ -10,4 +10,6 @@ export default function Header() {
       </a>
     </header>
   );
-}
+};
+
+export default Header;

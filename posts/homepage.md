@@ -10,7 +10,7 @@ cover_image: "/img5.jpg"
 The code for out homepage is located at `pages/index.tsx` and its role is to display a grid of all blog posts. The page consists of several key components including post cards that display titles, excerpts, and metadata, a responsive grid layout, and sorting functionality by date.
 
 ```tsx
-export default function Home({ posts }: HomeProps) {
+const Home = ({ posts }: HomeProps) => {
   return (
     <div>
       <Head>
@@ -24,7 +24,9 @@ export default function Home({ posts }: HomeProps) {
       </div>
     </div>
   );
-}
+};
+
+export default Home;
 ```
 
 ## Data Fetching Implementation
@@ -79,7 +81,7 @@ export const sortByDate = (
 The reusable Post component, located at `components/Post.tsx`, displays post previews in a consistent format. Each post card includes a cover image, publication date, title, excerpt, and a link to read the full article.
 
 ```tsx
-export default function Post({ post }: PostProps) {
+const Post = ({ post }: PostProps) => {
   return (
     <div className="card">
       {/* Add wrapper div with fixed aspect ratio */}
@@ -88,7 +90,7 @@ export default function Post({ post }: PostProps) {
           position: "relative",
           width: "100%",
           height: "15rem",
-          marginBottom: "1.5rem",
+          marginBottom: "3rem",
         }}
       >
         <Image
@@ -107,48 +109,9 @@ export default function Post({ post }: PostProps) {
       </Link>
     </div>
   );
-}
-```
+};
 
-## Layout and Styling
-
-The posts grid is implemented using CSS Grid, creating a responsive layout that adapts to different screen sizes.
-
-```css
-.posts {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  padding: 3rem;
-  border-radius: 1rem;
-  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
-}
-```
-
-On desktop views, posts appear in a two-column grid, while mobile devices display a single column for better readability.
-
-```css
-@media (max-width: 50rem) {
-  .posts {
-    grid-template-columns: 1fr;
-  }
-}
-```
-
-The post cards include padding, rounded corners, and a shadow effect that creates visual depth.
-
-```css
-.card {
-  padding: 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
-}
-
-.card-page {
-  padding: 1.5rem 3rem;
-}
+export default Post;
 ```
 
 ## Responsive Considerations
