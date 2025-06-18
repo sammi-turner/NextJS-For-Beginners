@@ -10,7 +10,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <main className="container">
         <Component {...pageProps} />
       </main>
-      <br />
       <Footer />
     </div>
   );

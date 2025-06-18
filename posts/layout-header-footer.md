@@ -73,7 +73,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <Component {...pageProps} />
         <br />
       </main>
-      <br />
       <Footer />
     </div>
   );
