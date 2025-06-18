@@ -30,9 +30,7 @@ Here’s a breakdown of the key files and folders in the project:
 ├── public/
 │   └── (Static assets like images)
 ├── styles/
-│   └── globals.css
-└── utils/
-    └── index.ts
+    └── globals.css
 ```
 
 ### Key Files Explained

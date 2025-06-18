@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Head from "next/head";
-import { sortByDate } from "../utils";
 import Post from "@/components/Post";
 
 // Define types for your frontmatter data
@@ -24,6 +23,16 @@ export interface PostProps {
 interface HomeProps {
   posts: PostProps["post"][]; // Array of posts matching the Post component's expected type
 }
+
+export const sortByDate = (
+  a: { frontmatter: { date: string | number | Date } },
+  b: { frontmatter: { date: string | number | Date } }
+): number => {
+  return (
+    (new Date(a.frontmatter.date) as unknown as number) -
+    (new Date(b.frontmatter.date) as unknown as number)
+  );
+};
 
 export async function getStaticProps(): Promise<{ props: HomeProps }> {
   const files = fs.readdirSync(path.join("posts"));
