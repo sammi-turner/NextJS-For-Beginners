@@ -63,7 +63,7 @@ footer {
   max-width: 80rem;
   margin: auto;
   overflow: auto;
-  padding: 1rem 1rem;
+  padding: 0.6rem 0.6rem;
 }
 ```
 
@@ -138,9 +138,9 @@ Post elements like the title, date and post body have their own custom classes:
 .posts {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  gap: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   padding: 3rem;
   border-radius: 1rem;
   box-shadow: 0.4rem 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
