@@ -1,8 +1,8 @@
 ---
 title: "The Layout, Header and Footer"
-date: "2025-06-02"
+date: "2025-06-03"
 excerpt: "The layout of a blog plays a crucial role in its user experience."
-cover_image: "/img2.jpg"
+cover_image: "/img3.jpg"
 ---
 
 ## The Header Component

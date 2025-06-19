@@ -1,8 +1,8 @@
 ---
 title: "An Overview"
-date: "2025-06-01"
+date: "2025-06-02"
 excerpt: "The subject matter of this blog is its own implementation!"
-cover_image: "/img1.jpg"
+cover_image: "/img2.jpg"
 ---
 
 ## Why Next.js for a Static Blog?

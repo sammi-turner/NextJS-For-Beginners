@@ -1,6 +1,6 @@
 ---
 title: "Extending the Blog"
-date: "2025-06-07"
+date: "2025-06-08"
 excerpt: "While our static blog provides core functionality, there is always room for improvement."
 cover_image: "/img8.jpg"
 ---

@@ -1,8 +1,8 @@
 ---
 title: "How Individual Posts Work"
-date: "2025-06-03"
+date: "2025-06-04"
 excerpt: "The individual posts in this Next.js blog are displayed with dynamic routing."
-cover_image: "/img3.jpg"
+cover_image: "/img4.jpg"
 ---
 
 ## Dynamic Routing

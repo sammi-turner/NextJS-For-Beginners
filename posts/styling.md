@@ -1,8 +1,8 @@
 ---
 title: "Styling the Blog"
-date: "2025-06-06"
+date: "2025-06-07"
 excerpt: "This blog is styled with both a global CSS file and JSX scoped styles."
-cover_image: "/img6.jpg"
+cover_image: "/img7.jpg"
 ---
 
 ## Global Stylesheet

@@ -1,8 +1,8 @@
 ---
 title: "React-Markdown and Syntax Highlighting"
-date: "2025-06-04"
+date: "2025-06-05"
 excerpt: "How this blog's Markdown content is transformed into styled HTML."
-cover_image: "/img4.jpg"
+cover_image: "/img5.jpg"
 ---
 
 ## The MarkdownRenderer Component

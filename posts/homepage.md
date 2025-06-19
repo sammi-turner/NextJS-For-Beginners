@@ -1,8 +1,8 @@
 ---
 title: "Designing the Homepage"
-date: "2025-06-05"
+date: "2025-06-06"
 excerpt: "The homepage serves as the entry point to our blog, displaying its articles in an organized layout."
-cover_image: "/img5.jpg"
+cover_image: "/img6.jpg"
 ---
 
 ## The Homepage
