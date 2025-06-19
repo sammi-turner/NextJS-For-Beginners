@@ -23,7 +23,6 @@ const greyBlur: string =
 const Post = ({ post }: PostProps) => {
   return (
     <div className="card">
-      {/* Add wrapper div with fixed aspect ratio */}
       <div
         style={{
           position: "relative",

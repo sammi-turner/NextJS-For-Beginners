@@ -178,12 +178,15 @@ style={{
 ```
 
 ```jsx
+>
 <Image
   src={cover_image}
   alt="post image"
   fill
   style={{ objectFit: "cover", borderRadius: "1rem" }}
-  unoptimized // Only if images are already optimized
+  unoptimized
+  placeholder="blur"
+  blurDataURL={greyBlur}
 />
 ```
 
@@ -194,7 +197,7 @@ style={{
   position: "relative",
   width: "100%",
   height: "15rem",
-  marginBottom: "1.5rem",
+  marginBottom: "3rem",
 }}
 ```
 
@@ -204,6 +207,8 @@ style={{
   alt="cover image"
   fill
   style={{ objectFit: "cover" }}
-  unoptimized // Only if images are already optimized
+  unoptimized
+  placeholder="blur"
+  blurDataURL={greyBlur}
 />
 ```
