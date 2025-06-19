@@ -53,6 +53,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
+const greyBlur: string =
+  "data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAQAAAAfQ//73v/+BiOh/AAA=";
+
 const PostPage: React.FC<PostPageProps> = ({
   frontmatter: { title, date, cover_image },
   content,
@@ -65,7 +68,6 @@ const PostPage: React.FC<PostPageProps> = ({
       <div className="card card-page">
         <h1 className="post-title">{title}</h1>
         <div className="post-date">Posted on {date}</div>
-        {/* Add wrapper div with fixed aspect ratio */}
         <div
           style={{
             position: "relative",
@@ -79,7 +81,9 @@ const PostPage: React.FC<PostPageProps> = ({
             alt="post image"
             fill
             style={{ objectFit: "cover", borderRadius: "1rem" }}
-            unoptimized // Only if images are already optimized
+            unoptimized
+            placeholder="blur"
+            blurDataURL={greyBlur}
           />
         </div>
         <div className="post-body">

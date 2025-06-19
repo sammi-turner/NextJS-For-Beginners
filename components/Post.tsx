@@ -17,6 +17,9 @@ export interface PostProps {
   };
 }
 
+const greyBlur: string =
+  "data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAQAAAAfQ//73v/+BiOh/AAA=";
+
 const Post = ({ post }: PostProps) => {
   return (
     <div className="card">
@@ -34,7 +37,9 @@ const Post = ({ post }: PostProps) => {
           alt="cover image"
           fill
           style={{ objectFit: "cover" }}
-          unoptimized // Only if images are already optimized
+          unoptimized
+          placeholder="blur"
+          blurDataURL={greyBlur}
         />
       </div>
       <div className="post-date">Posted on {post.frontmatter.date}</div>

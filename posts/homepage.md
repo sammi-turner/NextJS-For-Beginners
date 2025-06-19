@@ -81,6 +81,9 @@ export const sortByDate = (
 The reusable Post component, located at `components/Post.tsx`, displays post previews in a consistent format. Each post card includes a cover image, publication date, title, excerpt, and a link to read the full article.
 
 ```tsx
+const greyBlur: string =
+  "data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAQAAAAfQ//73v/+BiOh/AAA=";
+
 const Post = ({ post }: PostProps) => {
   return (
     <div className="card">
@@ -98,7 +101,9 @@ const Post = ({ post }: PostProps) => {
           alt="cover image"
           fill
           style={{ objectFit: "cover" }}
-          unoptimized // Only if images are already optimized
+          unoptimized
+          placeholder="blur"
+          blurDataURL={greyBlur}
         />
       </div>
       <div className="post-date">Posted on {post.frontmatter.date}</div>

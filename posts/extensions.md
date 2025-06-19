@@ -25,15 +25,9 @@ Modern websites should adapt to user preferences, so we'll implement dark mode u
 
 Finding content should be effortless. We'll add client-side search functionality using libraries like Fuse.js, complete with a dedicated search results page that highlights matching terms. For power users, we'll integrate keyboard shortcuts (Ctrl+K) to quickly access the search feature.
 
-## Technical Improvements
-
 ### Incremental Static Regeneration
 
 To keep content fresh without sacrificing performance, we'll implement Incremental Static Regeneration (ISR). This allows frequently updated content to regenerate automatically at set intervals, while supporting on-demand revalidation for editorial workflows when immediate updates are needed.
-
-### Image Optimization
-
-Images often impact performance the most. We'll replace static images with Next.js Image component, which automatically generates responsive image sizes and implements lazy loading with elegant blur-up placeholders for smoother page transitions.
 
 ## Community Features
 
