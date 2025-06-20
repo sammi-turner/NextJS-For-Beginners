@@ -7,7 +7,7 @@ cover_image: "/img6.jpg"
 
 ## The Homepage
 
-The code for out homepage is located at `pages/index.tsx` and its role is to display a grid of all blog posts. The page consists of several key components including post cards that display titles, excerpts, and metadata, a responsive grid layout, and sorting functionality by date.
+The code for out homepage is located at `pages/index.tsx` and its role is to display a grid of all blog posts. The page consists of several key components including post cards that display titles, excerpts, metadata, a responsive grid layout, and sorting functionality by date.
 
 ```tsx
 const Home = ({ posts }: HomeProps) => {
