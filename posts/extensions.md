@@ -45,10 +45,6 @@ Building an audience requires tools for communication. We'll integrate newslette
 
 To optimize loading, we'll implement code splitting through dynamic imports for heavy components and route-based chunking. Internal links will use prefetching to make navigation feel instantaneous.
 
-### Analytics Upgrade
-
-Understanding user behavior is important, but so is privacy. We'll upgrade to Plausible analytics for privacy-focused tracking, with custom event capabilities and performance metric collection to monitor site health.
-
 ## Content Management
 
 ### Admin Interface
