@@ -1,7 +1,7 @@
 ---
-title: "React-Markdown and Syntax Highlighting"
+title: "External Libraries"
 date: "2025-06-05"
-excerpt: "How this blog's Markdown content is transformed into styled HTML."
+excerpt: "This blog's Markdown content is transformed into styled HTML with the React Markdown and Prism libraries."
 cover_image: "/img5.jpg"
 ---
 

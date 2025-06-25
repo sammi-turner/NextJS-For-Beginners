@@ -1,7 +1,7 @@
 ---
 title: "An Overview"
 date: "2025-06-02"
-excerpt: "The subject matter of this blog is its own implementation!"
+excerpt: "The subject matter of this blog is its own implementation. The code that built it will be examined."
 cover_image: "/img2.jpg"
 ---
 

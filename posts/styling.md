@@ -1,7 +1,7 @@
 ---
-title: "Styling the Blog"
+title: "Styling"
 date: "2025-06-07"
-excerpt: "This blog is styled with both a global CSS file and JSX scoped styles."
+excerpt: "The look and feel of this blog is defined with a global CSS file and some JSX scoped styles."
 cover_image: "/img7.jpg"
 ---
 
@@ -89,8 +89,8 @@ The `btn` class has the bulk of the button styling, but is supplemented with cla
 .btn {
   margin-top: 0.6rem;
   display: inline-block;
-  background: steelblue;
-  color: #fff;
+  background: #301934;
+  color: #f9f9f9;
   border: none;
   padding: 0.5rem 0.7rem;
   border-radius: 0.3rem;

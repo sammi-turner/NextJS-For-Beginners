@@ -1,7 +1,7 @@
 ---
 title: "The Layout, Header and Footer"
 date: "2025-06-03"
-excerpt: "The layout of a blog plays a crucial role in its user experience."
+excerpt: "The layout of a blog plays a crucial role in how it is navigated by its visitors."
 cover_image: "/img3.jpg"
 ---
 
