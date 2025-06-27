@@ -62,7 +62,7 @@ export async function getStaticProps(): Promise<{ props: HomeProps }> {
 }
 ```
 
-Posts are sorted chronologically using a utility function that compares dates. This ensures the most recent posts appear first in the grid layout.
+Posts are sorted chronologically using a utility function that compares dates. This ensures that the oldest post appears first in the grid layout.
 
 ```tsx
 export const sortByDate = (
